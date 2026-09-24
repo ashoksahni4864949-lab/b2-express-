@@ -3,28 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>B2 EXPRESS - Join Telegram</title>
+    <title>B2 EXPRESS - India's Premium Aviator Community</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;0,800;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Poppins', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
                     },
                     colors: {
-                        darkBg: '#050505',
-                        cardBg: '#111111',
-                        cardBorder: '#222222',
-                        brandYellow: '#e5ff00',
-                        textMuted: '#9ca3af',
+                        brand: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            500: '#14b8a6', // Teal main
+                            600: '#0d9488', // Teal dark
+                            900: '#134e4a', // Deep teal background
+                        },
+                        accent: {
+                            500: '#d4af37', // Professional Gold
+                            600: '#b5952f', // Darker gold for hover
+                        }
                     },
                     boxShadow: {
-                        'glow-yellow': '0 0 30px rgba(229, 255, 0, 0.3)',
-                        'logo-glow': '0 0 25px rgba(229, 255, 0, 0.4)',
+                        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+                        'card': '0 10px 30px -5px rgba(20, 184, 166, 0.08)',
                     }
                 }
             }
@@ -33,48 +41,47 @@
 
     <style>
         body {
-            background-color: #050505;
-            color: white;
-            overflow-x: hidden;
+            background-color: #f8fafc; /* Very light slate background */
+            color: #1e293b; /* Slate 800 for main text */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
-        /* Custom Background Glows - Fixed with viewport bounds */
-        .bg-glow {
-            position: absolute;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(229,255,0,0.15) 0%, rgba(5,5,5,0) 70%);
-            top: -200px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1;
-            border-radius: 50%;
-            pointer-events: none;
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #134e4a 0%, #0f172a 100%);
         }
-        .bg-glow-purple {
-            position: absolute;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, rgba(5,5,5,0) 70%);
-            bottom: -300px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1;
-            border-radius: 50%;
-            pointer-events: none;
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.08);
         }
+
         /* Image Logo Style */
         .logo-image {
-            width: 140px;
-            height: 140px;
+            width: 110px;
+            height: 110px;
             border-radius: 50%;
-            border: 3px solid #e5ff00;
+            border: 4px solid white;
             object-fit: cover;
-            background: #000;
-            box-shadow: 0 0 30px rgba(229, 255, 0, 0.45);
-            transition: transform 0.3s ease;
+            background: #fff;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         .logo-image:hover {
-            transform: scale(1.05);
+            transform: scale(1.05) translateY(-5px);
+        }
+
+        .btn-primary {
+            background: linear-gradient(to right, #0d9488, #14b8a6);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(to right, #0f766e, #0d9488);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(20, 184, 166, 0.4);
         }
     </style>
 
@@ -88,86 +95,107 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '890735176888046');
+    fbq('init', '1596629035538845');
     fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=890735176888046&ev=PageView&noscript=1"
+    src="https://www.facebook.com/tr?id=1596629035538845&ev=PageView&noscript=1"
     /></noscript>
     <!-- End Meta Pixel Code -->
 
 </head>
-<body class="antialiased min-h-screen bg-darkBg relative font-sans">
+<body class="font-sans min-h-screen flex flex-col">
     
-    <!-- Wrapper to strictly clip extra bottom spaces caused by gradients -->
-    <div class="relative min-h-screen overflow-hidden w-full flex flex-col items-center justify-center py-10">
-        
-        <!-- Ambient Background Glows inside container -->
-        <div class="bg-glow"></div>
-        <div class="bg-glow-purple"></div>
+    <!-- Header/Hero Section -->
+    <header class="gradient-bg w-full pt-16 pb-32 px-4 relative overflow-hidden flex-shrink-0">
+        <!-- Abstract background shapes for professional look -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0 opacity-20 pointer-events-none">
+            <div class="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-brand-500 blur-3xl"></div>
+            <div class="absolute top-1/2 right-0 w-64 h-64 rounded-full bg-blue-500 blur-3xl transform translate-x-1/2"></div>
+        </div>
 
-        <div class="max-w-4xl w-full mx-auto px-4 flex flex-col items-center relative z-10">
+        <div class="max-w-4xl mx-auto relative z-10 flex flex-col items-center text-center">
             
-            <!-- Logo Section with Premium Golden 'B' Logo -->
-            <div class="mb-6 flex justify-center">
-                <img src="watermarked_img_1819214572267359626.png" alt="B2 EXPRESS Logo" class="logo-image" onerror="this.src='https://placehold.co/140x140/000000/e5ff00?text=B2+EXPRESS'">
+            <div class="mb-6">
+                <img src="watermarked_img_1819214572267359626.png" alt="B2 EXPRESS Logo" class="logo-image" onerror="this.src='https://placehold.co/110x110/ffffff/0f172a?text=B2'">
             </div>
 
-            <!-- Main Heading -->
-            <h1 class="text-4xl md:text-5xl font-extrabold text-center tracking-tight mb-1">
-                B2 <br class="md:hidden">
-                <span class="text-brandYellow">EXPRESS</span>
+            <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-3 font-serif">
+                B2 <span class="text-brand-100">EXPRESS</span>
             </h1>
-            <p class="text-textMuted text-xs md:text-sm tracking-[0.3em] uppercase font-semibold mb-8 text-center">
-                India's No.1 AVIATOR
+            
+            <p class="text-brand-100/80 text-sm md:text-base tracking-[0.2em] uppercase font-medium mb-2">
+                India's Premier Aviator Community
+            </p>
+            
+            <div class="w-16 h-1 bg-accent-500 mx-auto rounded-full mt-4 mb-4"></div>
+        </div>
+    </header>
+
+    <!-- Main Content Area (Overlapping the header) -->
+    <main class="flex-grow flex flex-col items-center w-full px-4 -mt-20 relative z-20 pb-16">
+        
+        <div class="glass-card w-full max-w-3xl rounded-2xl p-6 md:p-10 flex flex-col items-center">
+            
+            <h2 class="text-2xl md:text-3xl font-bold text-slate-800 text-center mb-6">
+                Join Our Exclusive Network
+            </h2>
+            <p class="text-slate-600 text-center mb-8 max-w-lg leading-relaxed">
+                Gain access to unparalleled insights and join a community of over 100,000 active professionals shaping the future.
             </p>
 
             <!-- 🔴 TELEGRAM JOIN BUTTON 🔴 -->
-            <a href="https://t.me/+GWMQxlS6essxOTE1" class="w-full max-w-md bg-gradient-to-r from-[#f0ff44] to-[#ccff00] text-black font-extrabold py-4 px-8 rounded-xl text-lg hover:scale-105 transition-transform duration-300 shadow-glow-yellow mb-4 uppercase tracking-wide text-center flex justify-center items-center gap-3">
-                <i class="fa-brands fa-telegram text-xl"></i> JOIN TELEGRAM
+            <a href="https://t.me/+GWMQxlS6essxOTE1" class="btn-primary w-full max-w-md text-white font-semibold py-4 px-8 rounded-xl text-lg mb-6 flex justify-center items-center gap-3">
+                <i class="fa-brands fa-telegram text-xl"></i> Access Telegram Channel
             </a>
             
-            <p class="text-gray-400 text-sm mb-6 text-center">Trusted by 100K+ Active Users</p>
-
             <!-- Countdown Timer -->
-            <div class="bg-black/50 border border-white/5 rounded-full px-6 py-2 mb-10 flex items-center gap-2 backdrop-blur-sm">
-                <span class="text-gray-400 text-sm font-semibold tracking-wider">ENDS IN:</span>
-                <span class="text-red-500 font-bold text-sm tracking-widest" id="countdown">14:59</span>
+            <div class="flex items-center gap-3 text-slate-500 text-sm font-medium mb-10 bg-slate-50 py-2 px-5 rounded-full border border-slate-100">
+                <i class="fa-regular fa-clock text-accent-500"></i>
+                <span>Limited time offer ends in:</span>
+                <span class="text-brand-600 font-bold font-mono text-base bg-brand-50 px-2 py-0.5 rounded" id="countdown">14:59</span>
             </div>
 
             <!-- Stats Grid -->
-            <div class="grid grid-cols-3 gap-3 md:gap-6 w-full max-w-2xl mb-8">
+            <div class="grid grid-cols-3 gap-4 md:gap-8 w-full max-w-2xl border-t border-slate-100 pt-8">
                 <!-- Card 1 -->
-                <div class="bg-cardBg border border-cardBorder rounded-2xl p-4 md:p-6 flex flex-col items-center justify-center text-center transition-colors hover:border-brandYellow/50">
-                    <i class="fa-solid fa-check text-brandYellow text-xl md:text-2xl mb-2"></i>
-                    <h3 class="text-white font-bold text-lg md:text-xl">100%</h3>
-                    <p class="text-gray-500 text-[10px] md:text-xs font-semibold uppercase tracking-wider">Accuracy</p>
+                <div class="flex flex-col items-center justify-center text-center group">
+                    <div class="w-12 h-12 rounded-full bg-brand-50 flex items-center justify-center mb-3 group-hover:bg-brand-100 transition-colors">
+                        <i class="fa-solid fa-chart-line text-brand-600 text-lg md:text-xl"></i>
+                    </div>
+                    <h3 class="text-slate-800 font-bold text-xl mb-1">100%</h3>
+                    <p class="text-slate-500 text-[10px] md:text-xs font-semibold uppercase tracking-wider">Precision</p>
                 </div>
                 <!-- Card 2 -->
-                <div class="bg-cardBg border border-cardBorder rounded-2xl p-4 md:p-6 flex flex-col items-center justify-center text-center transition-colors hover:border-brandYellow/50">
-                    <i class="fa-regular fa-star text-brandYellow text-xl md:text-2xl mb-2"></i>
-                    <h3 class="text-white font-bold text-lg md:text-xl">100K+</h3>
-                    <p class="text-gray-500 text-[10px] md:text-xs font-semibold uppercase tracking-wider">Members</p>
+                <div class="flex flex-col items-center justify-center text-center group border-x border-slate-100">
+                    <div class="w-12 h-12 rounded-full bg-brand-50 flex items-center justify-center mb-3 group-hover:bg-brand-100 transition-colors">
+                        <i class="fa-solid fa-users text-brand-600 text-lg md:text-xl"></i>
+                    </div>
+                    <h3 class="text-slate-800 font-bold text-xl mb-1">100K+</h3>
+                    <p class="text-slate-500 text-[10px] md:text-xs font-semibold uppercase tracking-wider">Members</p>
                 </div>
                 <!-- Card 3 -->
-                <div class="bg-cardBg border border-cardBorder rounded-2xl p-4 md:p-6 flex flex-col items-center justify-center text-center transition-colors hover:border-brandYellow/50">
-                    <i class="fa-solid fa-gem text-brandYellow text-xl md:text-2xl mb-2"></i>
-                    <h3 class="text-white font-bold text-lg md:text-xl">24/7</h3>
-                    <p class="text-gray-500 text-[10px] md:text-xs font-semibold uppercase tracking-wider">Support</p>
+                <div class="flex flex-col items-center justify-center text-center group">
+                    <div class="w-12 h-12 rounded-full bg-brand-50 flex items-center justify-center mb-3 group-hover:bg-brand-100 transition-colors">
+                        <i class="fa-solid fa-headset text-brand-600 text-lg md:text-xl"></i>
+                    </div>
+                    <h3 class="text-slate-800 font-bold text-xl mb-1">24/7</h3>
+                    <p class="text-slate-500 text-[10px] md:text-xs font-semibold uppercase tracking-wider">Support</p>
                 </div>
-            </div>
-
-            <!-- Trust Badges -->
-            <div class="flex items-center justify-center gap-4 md:gap-8 text-sm text-gray-400">
-                <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brandYellow"></i> Verified</div>
-                <span class="text-gray-700">•</span>
-                <div>Secure</div>
-                <span class="text-gray-700">•</span>
-                <div class="flex items-center gap-2"><i class="fa-solid fa-bolt text-brandYellow"></i> Instant</div>
             </div>
 
         </div>
-    </div>
+        
+        <!-- Trust Badges below card -->
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-4 md:gap-8 text-sm text-slate-500 font-medium">
+            <div class="flex items-center gap-2"><i class="fa-solid fa-shield-check text-brand-500"></i> Verified Platform</div>
+            <span class="text-slate-300 hidden md:inline">•</span>
+            <div class="flex items-center gap-2"><i class="fa-solid fa-lock text-brand-500"></i> Secure Connection</div>
+            <span class="text-slate-300 hidden md:inline">•</span>
+            <div class="flex items-center gap-2"><i class="fa-solid fa-bolt text-accent-500"></i> Instant Access</div>
+        </div>
+
+    </main>
 
     <!-- Countdown Script -->
     <script>
