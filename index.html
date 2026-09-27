@@ -3,36 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>B2 EXPRESS - Professional Aviator Community</title>
+    <title>B2 EXPRESS - Join Telegram</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;0,800;1,700&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Poppins', 'sans-serif'],
                     },
                     colors: {
-                        corporate: {
-                            50: '#f8fafc',
-                            100: '#f1f5f9',
-                            500: '#3b82f6', // Professional Blue
-                            600: '#2563eb', // Darker Blue for hover
-                            900: '#0f172a', // Deep slate for text/accents
-                        },
-                        accent: {
-                            gold: '#d4af37', // Professional Gold
-                        }
+                        darkBg: '#050505',
+                        cardBg: '#111111',
+                        cardBorder: '#222222',
+                        brandYellow: '#e5ff00',
+                        textMuted: '#9ca3af',
                     },
                     boxShadow: {
-                        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
-                        'card': '0 10px 30px -5px rgba(15, 23, 42, 0.08)',
-                        'button': '0 4px 14px 0 rgba(37, 99, 235, 0.39)',
+                        'glow-yellow': '0 0 30px rgba(229, 255, 0, 0.3)',
+                        'logo-glow': '0 0 25px rgba(229, 255, 0, 0.4)',
                     }
                 }
             }
@@ -41,63 +34,48 @@
 
     <style>
         body {
-            background-color: #f8fafc; /* Very light slate background */
-            color: #334155; /* Slate 700 for main text */
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        
-        .header-bg {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            border-bottom: 4px solid #d4af37;
-        }
-
-        .glass-card {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.08);
-            border-radius: 1rem;
-        }
-
-        /* Placeholder for Logo */
-        .logo-container {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background-color: #ffffff;
-            border: 3px solid #d4af37;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            margin: 0 auto;
-            overflow: hidden;
-            /* You can add your image inside this container in your index file */
-        }
-
-        .logo-placeholder-text {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: #0f172a;
-            text-align: center;
-        }
-
-        .btn-primary {
-            background-color: #2563eb;
+            background-color: #050505;
             color: white;
-            transition: all 0.3s ease;
+            overflow-x: hidden;
         }
-        
-        .btn-primary:hover {
-            background-color: #1d4ed8;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        /* Custom Background Glows - Fixed with viewport bounds */
+        .bg-glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(229,255,0,0.15) 0%, rgba(5,5,5,0) 70%);
+            top: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+            border-radius: 50%;
+            pointer-events: none;
         }
-
-        .stat-icon-bg {
-            background-color: #f1f5f9;
-            color: #2563eb;
+        .bg-glow-purple {
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, rgba(5,5,5,0) 70%);
+            bottom: -300px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        /* Image Logo Style */
+        .logo-image {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 3px solid #e5ff00;
+            object-fit: cover;
+            background: #000;
+            box-shadow: 0 0 30px rgba(229, 255, 0, 0.45);
+            transition: transform 0.3s ease;
+        }
+        .logo-image:hover {
+            transform: scale(1.05);
         }
     </style>
 
@@ -120,86 +98,77 @@
     <!-- End Meta Pixel Code -->
 
 </head>
-<body class="font-sans min-h-screen flex flex-col">
+<body class="antialiased min-h-screen bg-darkBg relative font-sans">
     
-    <!-- Header/Hero Section -->
-    <header class="header-bg w-full pt-16 pb-32 px-4 relative flex-shrink-0">
-        <div class="max-w-4xl mx-auto relative z-10 flex flex-col items-center text-center">
+    <!-- Wrapper to strictly clip extra bottom spaces caused by gradients -->
+    <div class="relative min-h-screen overflow-hidden w-full flex flex-col items-center justify-center py-10">
+        
+        <!-- Ambient Background Glows inside container -->
+        <div class="bg-glow"></div>
+        <div class="bg-glow-purple"></div>
+
+        <div class="max-w-4xl w-full mx-auto px-4 flex flex-col items-center relative z-10">
             
-            <!-- Logo Placeholder (Edit this part in your index) -->
-            <div class="mb-8">
-                <div class="logo-container">
-                    <span class="logo-placeholder-text">Logo</span>
-                </div>
+            <!-- Logo Section with Premium Golden 'B' Logo -->
+            <div class="mb-6 flex justify-center">
+                <img src="watermarked_img_1819214572267359626.png" alt="B2 EXPRESS Logo" class="logo-image" onerror="this.src='https://placehold.co/140x140/000000/e5ff00?text=B2+EXPRESS'">
             </div>
 
-            <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-3 font-serif">
-                B2 <span class="text-blue-400">EXPRESS</span>
+            <!-- Main Heading -->
+            <h1 class="text-4xl md:text-5xl font-extrabold text-center tracking-tight mb-1">
+                B2 <br class="md:hidden">
+                <span class="text-brandYellow">EXPRESS</span>
             </h1>
-            
-            <p class="text-slate-300 text-sm md:text-base tracking-[0.2em] uppercase font-medium mb-2">
-                India's Premier Aviator Community
+            <p class="text-textMuted text-xs md:text-sm tracking-[0.3em] uppercase font-semibold mb-8 text-center">
+                India's No.1 AVIATOR
             </p>
-        </div>
-    </header>
 
-    <!-- Main Content Area -->
-    <main class="flex-grow flex flex-col items-center w-full px-4 -mt-20 relative z-20 pb-16">
-        
-        <div class="glass-card w-full max-w-3xl p-8 md:p-12 flex flex-col items-center mt-4">
-            
-            <!-- 🔴 TELEGRAM JOIN BUTTON 🔴 -->
-            <a href="https://t.me/+GWMQxlS6essxOTE1" class="btn-primary w-full max-w-md font-semibold py-4 px-8 rounded-lg text-lg mb-8 flex justify-center items-center gap-3 uppercase tracking-wide">
-                <i class="fa-brands fa-telegram text-xl"></i> Access Telegram Channel
+            <!-- 🔴 TELEGRAM JOIN BUTTON (NOW GOES TO BOT) 🔴 -->
+            <a href="https://t.me/B2Expressbhai_newbot" class="w-full max-w-md bg-gradient-to-r from-[#f0ff44] to-[#ccff00] text-black font-extrabold py-4 px-8 rounded-xl text-lg hover:scale-105 transition-transform duration-300 shadow-glow-yellow mb-4 uppercase tracking-wide text-center flex justify-center items-center gap-3">
+                <i class="fa-brands fa-telegram text-xl"></i> JOIN TELEGRAM
             </a>
             
+            <p class="text-gray-400 text-sm mb-6 text-center">Trusted by 100K+ Active Users</p>
+
             <!-- Countdown Timer -->
-            <div class="flex items-center gap-3 text-slate-600 text-sm font-medium mb-12 bg-slate-50 py-3 px-6 rounded-lg border border-slate-200">
-                <i class="fa-regular fa-clock text-blue-600"></i>
-                <span>Priority Access Closes In:</span>
-                <span class="text-slate-800 font-bold font-mono text-lg" id="countdown">14:59</span>
+            <div class="bg-black/50 border border-white/5 rounded-full px-6 py-2 mb-10 flex items-center gap-2 backdrop-blur-sm">
+                <span class="text-gray-400 text-sm font-semibold tracking-wider">ENDS IN:</span>
+                <span class="text-red-500 font-bold text-sm tracking-widest" id="countdown">14:59</span>
             </div>
 
             <!-- Stats Grid -->
-            <div class="grid grid-cols-3 gap-4 md:gap-12 w-full max-w-2xl border-t border-slate-100 pt-10">
+            <div class="grid grid-cols-3 gap-3 md:gap-6 w-full max-w-2xl mb-8">
                 <!-- Card 1 -->
-                <div class="flex flex-col items-center justify-center text-center">
-                    <div class="w-14 h-14 rounded-full stat-icon-bg flex items-center justify-center mb-4">
-                        <i class="fa-solid fa-chart-line text-xl md:text-2xl"></i>
-                    </div>
-                    <h3 class="text-slate-900 font-bold text-2xl mb-1">100%</h3>
-                    <p class="text-slate-500 text-[11px] md:text-sm font-medium uppercase tracking-wider">Precision</p>
+                <div class="bg-cardBg border border-cardBorder rounded-2xl p-4 md:p-6 flex flex-col items-center justify-center text-center transition-colors hover:border-brandYellow/50">
+                    <i class="fa-solid fa-check text-brandYellow text-xl md:text-2xl mb-2"></i>
+                    <h3 class="text-white font-bold text-lg md:text-xl">100%</h3>
+                    <p class="text-gray-500 text-[10px] md:text-xs font-semibold uppercase tracking-wider">Accuracy</p>
                 </div>
                 <!-- Card 2 -->
-                <div class="flex flex-col items-center justify-center text-center border-x border-slate-100">
-                    <div class="w-14 h-14 rounded-full stat-icon-bg flex items-center justify-center mb-4">
-                        <i class="fa-solid fa-users text-xl md:text-2xl"></i>
-                    </div>
-                    <h3 class="text-slate-900 font-bold text-2xl mb-1">100K+</h3>
-                    <p class="text-slate-500 text-[11px] md:text-sm font-medium uppercase tracking-wider">Members</p>
+                <div class="bg-cardBg border border-cardBorder rounded-2xl p-4 md:p-6 flex flex-col items-center justify-center text-center transition-colors hover:border-brandYellow/50">
+                    <i class="fa-regular fa-star text-brandYellow text-xl md:text-2xl mb-2"></i>
+                    <h3 class="text-white font-bold text-lg md:text-xl">100K+</h3>
+                    <p class="text-gray-500 text-[10px] md:text-xs font-semibold uppercase tracking-wider">Members</p>
                 </div>
                 <!-- Card 3 -->
-                <div class="flex flex-col items-center justify-center text-center">
-                    <div class="w-14 h-14 rounded-full stat-icon-bg flex items-center justify-center mb-4">
-                        <i class="fa-solid fa-headset text-xl md:text-2xl"></i>
-                    </div>
-                    <h3 class="text-slate-900 font-bold text-2xl mb-1">24/7</h3>
-                    <p class="text-slate-500 text-[11px] md:text-sm font-medium uppercase tracking-wider">Support</p>
+                <div class="bg-cardBg border border-cardBorder rounded-2xl p-4 md:p-6 flex flex-col items-center justify-center text-center transition-colors hover:border-brandYellow/50">
+                    <i class="fa-solid fa-gem text-brandYellow text-xl md:text-2xl mb-2"></i>
+                    <h3 class="text-white font-bold text-lg md:text-xl">24/7</h3>
+                    <p class="text-gray-500 text-[10px] md:text-xs font-semibold uppercase tracking-wider">Support</p>
                 </div>
             </div>
 
-        </div>
-        
-        <!-- Trust Badges below card -->
-        <div class="mt-10 flex flex-wrap items-center justify-center gap-6 md:gap-10 text-sm text-slate-500 font-medium">
-            <div class="flex items-center gap-2"><i class="fa-solid fa-shield-halved text-slate-400"></i> Verified Platform</div>
-            <span class="text-slate-300 hidden md:inline">|</span>
-            <div class="flex items-center gap-2"><i class="fa-solid fa-lock text-slate-400"></i> Secure Connection</div>
-            <span class="text-slate-300 hidden md:inline">|</span>
-            <div class="flex items-center gap-2"><i class="fa-solid fa-bolt text-slate-400"></i> Instant Access</div>
-        </div>
+            <!-- Trust Badges -->
+            <div class="flex items-center justify-center gap-4 md:gap-8 text-sm text-gray-400">
+                <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brandYellow"></i> Verified</div>
+                <span class="text-gray-700">•</span>
+                <div>Secure</div>
+                <span class="text-gray-700">•</span>
+                <div class="flex items-center gap-2"><i class="fa-solid fa-bolt text-brandYellow"></i> Instant</div>
+            </div>
 
-    </main>
+        </div>
+    </div>
 
     <!-- Countdown Script -->
     <script>
